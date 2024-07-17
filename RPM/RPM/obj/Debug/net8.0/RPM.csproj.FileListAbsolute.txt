@@ -1,0 +1,14 @@
+C:\Users\Ethan\Downloads\RPM\RPM\bin\Debug\net8.0\RPM.exe
+C:\Users\Ethan\Downloads\RPM\RPM\bin\Debug\net8.0\RPM.deps.json
+C:\Users\Ethan\Downloads\RPM\RPM\bin\Debug\net8.0\RPM.runtimeconfig.json
+C:\Users\Ethan\Downloads\RPM\RPM\bin\Debug\net8.0\RPM.dll
+C:\Users\Ethan\Downloads\RPM\RPM\bin\Debug\net8.0\RPM.pdb
+C:\Users\Ethan\Downloads\RPM\RPM\obj\Debug\net8.0\RPM.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ethan\Downloads\RPM\RPM\obj\Debug\net8.0\RPM.AssemblyInfoInputs.cache
+C:\Users\Ethan\Downloads\RPM\RPM\obj\Debug\net8.0\RPM.AssemblyInfo.cs
+C:\Users\Ethan\Downloads\RPM\RPM\obj\Debug\net8.0\RPM.csproj.CoreCompileInputs.cache
+C:\Users\Ethan\Downloads\RPM\RPM\obj\Debug\net8.0\RPM.dll
+C:\Users\Ethan\Downloads\RPM\RPM\obj\Debug\net8.0\refint\RPM.dll
+C:\Users\Ethan\Downloads\RPM\RPM\obj\Debug\net8.0\RPM.pdb
+C:\Users\Ethan\Downloads\RPM\RPM\obj\Debug\net8.0\RPM.genruntimeconfig.cache
+C:\Users\Ethan\Downloads\RPM\RPM\obj\Debug\net8.0\ref\RPM.dll
