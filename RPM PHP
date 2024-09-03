@@ -1,0 +1,63 @@
+<?php
+
+function russianPeasantMultiplication($a, $b) {
+    try {
+        if (!isset($a) || !isset($b)) {
+            throw new InvalidArgumentException("Both numbers must be provided.");
+        }
+
+        if (!is_int($a) || !is_int($b)) {
+            throw new InvalidArgumentException("Both numbers must be integers.");
+        }
+
+        if ($a < 0 || $b < 0) {
+            throw new InvalidArgumentException("Both numbers must be non-negative integers.");
+        }
+
+        $MAX_SAFE_INTEGER = PHP_INT_MAX;
+        if ($a > $MAX_SAFE_INTEGER || $b > $MAX_SAFE_INTEGER) {
+            throw new OverflowException("Inputs are too large to handle safely.");
+        }
+
+        $result = 0;
+        while ($a > 0) {
+            if ($a % 2 != 0) {
+                $result += $b;
+                if ($result < 0 || $result > $MAX_SAFE_INTEGER) {
+                    throw new OverflowException("Addition resulted in overflow.");
+                }
+            }
+            $a = intdiv($a, 2);
+            $b *= 2; 
+            if ($b < 0 || $b > $MAX_SAFE_INTEGER) {
+                throw new OverflowException("Multiplication resulted in overflow.");
+            }
+        }
+
+        return $result;
+
+    } catch (InvalidArgumentException $e) {
+        echo "Invalid argument: " . $e->getMessage() . "\n";
+        return 0;
+    } catch (OverflowException $e) {
+        echo "Overflow error: " . $e->getMessage() . "\n";
+        return 0;
+    } catch (Exception $e) {
+        echo "An unexpected error occurred: " . $e->getMessage() . "\n";
+        return 0;
+    }
+}
+
+$result = russianPeasantMultiplication(18, 25);
+echo "18 multiplied by 25 using Russian Peasant Multiplication is $result\n";
+
+$errorResult = russianPeasantMultiplication(-5, 10);
+echo "Result of multiplication with a value error: $errorResult\n";
+
+$typeErrorResult = russianPeasantMultiplication(18.5, 25);
+echo "Result of multiplication with a type error: $typeErrorResult\n";
+
+$overflowErrorResult = russianPeasantMultiplication(PHP_INT_MAX, 2);
+echo "Result of multiplication with an overflow error: $overflowErrorResult\n";
+
+?>
