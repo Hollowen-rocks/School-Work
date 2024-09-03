@@ -1,0 +1,57 @@
+#include <iostream>
+#include <stdexcept>
+#include <limits>
+
+using namespace std;
+
+long long russianPeasantMultiplication(long long a, long long b) {
+    try {
+        if (a < 0 || b < 0) {
+            throw invalid_argument("Both numbers must be non-negative integers.");
+        }
+
+        if (a > numeric_limits<long long>::max() / 2 || b > numeric_limits<long long>::max() / 2) {
+            throw overflow_error("Inputs are too large to handle safely.");
+        }
+
+        long long result = 0;
+        while (a > 0) {
+            if (a % 2 != 0) {  
+                result += b;
+                if (result < 0) {
+                    throw overflow_error("Addition resulted in overflow.");
+                }
+            }
+            a /= 2; 
+            b *= 2; 
+            if (b < 0) {
+                throw overflow_error("Multiplication resulted in overflow.");
+            }
+        }
+
+        return result;
+
+    } catch (const invalid_argument& ia) {
+        cerr << "Invalid argument: " << ia.what() << endl;
+        return 0;
+    } catch (const overflow_error& oe) {
+        cerr << "Overflow error: " << oe.what() << endl;
+        return 0;
+    } catch (const exception& e) {
+        cerr << "An unexpected error occurred: " << e.what() << endl;
+        return 0;
+    }
+}
+
+int main() {
+    long long result = russianPeasantMultiplication(18, 25);
+    cout << "18 multiplied by 25 using Russian Peasant Multiplication is " << result << endl;
+
+    long long errorResult = russianPeasantMultiplication(-5, 10);
+    cout << "Result of multiplication with a value error: " << errorResult << endl;
+
+    long long overflowResult = russianPeasantMultiplication(10e12, 2);
+    cout << "Result of multiplication with an overflow error: " << overflowResult << endl;
+
+    return 0;
+}
