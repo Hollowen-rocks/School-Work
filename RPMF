@@ -1,0 +1,26 @@
+let russianPeasantMultiplication a b =
+    try
+        // Check for non-negative integers
+        if a < 0 || b < 0 then
+            failwith "Both numbers must be non-negative integers."
+
+        // Define the recursive multiplication function
+        let rec multiply x y acc =
+            if x = 0 then
+                acc
+            else
+                let newAcc = if x % 2 <> 0 then acc + y else acc
+                multiply (x / 2) (y * 2) newAcc
+
+        // Start the multiplication process
+        multiply a b 0
+    with
+    | :? System.ArgumentException as ex -> printfn "Argument error: %s" ex.Message; 0
+    | :? System.Exception as ex -> printfn "An error occurred: %s" ex.Message; 0
+
+// Example usage
+let result = russianPeasantMultiplication 18 25
+printfn "18 multiplied by 25 using Russian Peasant Multiplication is %d" result
+
+let errorResult = russianPeasantMultiplication -5 10
+printfn "Result of multiplication with an error: %d" errorResult
